@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Transaction Logger</title>
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#4CAF50" />
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -50,5 +52,14 @@
       marginwidth="0"
       >Loading…</iframe
     >
+
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("/sw.js")
+          .then((reg) => console.log("✅ Service Worker registered", reg))
+          .catch((err) => console.error("❌ Service Worker failed", err));
+      }
+    </script>
   </body>
 </html>
