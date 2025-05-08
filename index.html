@@ -1,61 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TransactionLog</title>
-  <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transaction Log</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="manifest" href="manifest.json" />
+  </head>
+  <body>
+    <div class="background"></div>
 
-  <!-- Background Animation (Online: tsParticles | Offline: SVG) -->
-  <div class="background-container">
-    <div id="tsparticles"></div>
-    <svg id="offline-svg" class="hidden" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
-      <defs>
-        <radialGradient id="goldSwirl" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#d4af37" />
-          <stop offset="100%" stop-color="black" />
-        </radialGradient>
-      </defs>
-      <rect width="800" height="600" fill="url(#goldSwirl)">
-        <animate attributeName="x" from="0" to="100" dur="10s" repeatCount="indefinite"/>
-      </rect>
-    </svg>
-  </div>
+    <main class="container">
+      <h1>Transaction Log</h1>
+      <p>Select a form to begin understanding your finances:</p>
+      <a href="personal.html" class="button">Personal Transactions</a>
+      <a href="business.html" class="button">Business Transactions</a>
+    </main>
 
-  <!-- Main Content -->
-  <main class="main-content">
-    <h1>TransactionLog</h1>
-    <p>Select a form to continue:</p>
-    <div class="button-container">
-      <a href="business.html" class="form-button">Business Transactions</a>
-      <a href="personal.html" class="form-button">Personal Transactions</a>
-    </div>
-  </main>
-
-  <script src="sw-register.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.3.0/tsparticles.bundle.min.js"></script>
-  <script>
-    // Load tsParticles if online
-    if (navigator.onLine) {
-      tsParticles.load("tsparticles", {
-        fullScreen: { enable: false },
-        background: { color: "#000000" },
-        particles: {
-          color: { value: "#d4af37" },
-          move: { enable: true, speed: 0.5, direction: "none", outModes: { default: "out" } },
-          size: { value: 2, random: true },
-          opacity: { value: 0.6 },
-          number: { value: 60, density: { enable: true, area: 800 } },
-        },
-      });
-    } else {
-      // Show fallback SVG if offline
-      document.getElementById("offline-svg").classList.remove("hidden");
-    }
-  </script>
-
-</body>
+    <script src="sw-register.js"></script>
+  </body>
 </html>

@@ -1,36 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Business Transactions</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="manifest" href="manifest.json" />
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js" defer></script>
-  <script src="sw-register.js" defer></script>
-  <script src="background-toggle.js" defer></script>
-</head>
-<body>
-  <div id="bg-container">
-    <div id="tsparticles"></div>
-    <div id="offline-svg" hidden>
-      <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <radialGradient id="grad-biz" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#FFD700" />
-            <stop offset="100%" stop-color="#000000" />
-          </radialGradient>
-        </defs>
-        <circle cx="50" cy="50" r="45" fill="url(#grad-biz)">
-          <animateTransform attributeName="transform" type="rotate" values="0 50 50;360 50 50" dur="30s" repeatCount="indefinite"/>
-        </circle>
-      </svg>
-    </div>
-  </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Transactions</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="background"></div>
 
-  <main>
-    <h1>Business Transaction Log</h1>
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfaBRm7XUR-P4XRIVhEmm9ERhQWIRoGybjudvZ6eMhZj8ndKA/viewform?embedded=true" width="100%" height="1200" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-  </main>
-</body>
+    <main class="container">
+      <h1>Personal Transactions</h1>
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLScQSQjHLEmAskhqtYcRGfwr97t-g6Nb4ZYt4ymv4-ru6p1-lA/viewform?embedded=true"
+        width="100%"
+        height="1250"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        >Loading…</iframe
+      >
+    </main>
+  </body>
 </html>

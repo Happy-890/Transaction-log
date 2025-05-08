@@ -1,103 +1,82 @@
-/* Reset basic layout */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
-  width: 100%;
-  font-family: Arial, sans-serif;
-  background-color: #000;
-  color: #fff;
-  overflow: auto;
-}
-
-.button-container {
-  margin-top: 2rem;
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.form-button {
-  background-color: #d4af37;
-  color: #000;
-  text-decoration: none;
-  padding: 1rem 2rem;
-  border-radius: 5px;
-  font-weight: bold;
-  transition: background-color 0.3s;
-}
-
-.form-button:hover {
-  background-color: #b5962f;
-}
-
-h1, p {
-  text-align: center;
-}
-
-/* Ensure full scrollable content */
+html,
 body {
-  position: relative;
-  z-index: 1;
+  height: 100%;
+  font-family: "Segoe UI", sans-serif;
+  background: black;
+  color: gold;
+  overflow-x: hidden;
 }
 
-/* Fullscreen animated background container */
-.background-container {
+.background {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0;
-  pointer-events: none; /* Allows form interaction through particles/SVG */
+  z-index: -11;
+  background: black;
   overflow: hidden;
 }
 
-/* tsParticles canvas */
-#tsparticles {
-  width: 100%;
-  height: 100%;
+.background::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 215, 0, 0.3),
+    transparent 70%
+  );
+  animation: swirl 20s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes swirl {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.container {
+  background: rgba(58, 57, 57, 0.85);
+  border: 1px solid gold;
+  border-radius: 10px;
+  max-width: 97%;
+  width: 400px;
+  margin: 5vh auto;
+  padding: .8em;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.2);
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5em;
+}
+
+.button {
   display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  pointer-events: none;
+  background: gold;
+  color: black;
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
 }
 
-/* Fallback SVG for offline */
-#offline-svg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* Content wrapper that holds the Google Form or other UI */
-.main-content {
-  position: relative;
-  z-index: 2;
-  padding: 2rem;
-  max-width: 800px;
-  margin: 0 auto;
-  min-height: 100vh;
-}
-
-/* Optional styling for form container if embedding iframe */
-iframe {
-  width: 100%;
-  min-height: 90vh;
-  border: none;
-}
-
-/* Simple utility styles */
-.hidden {
-  display: none !important;
+.button:hover {
+  background: #ffd700cc;
 }

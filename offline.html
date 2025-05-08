@@ -7,22 +7,20 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="container">
-      <h1>You're offline.</h1>
+    <div class="background"></div>
+
+    <main class="container">
+      <h1>You're Offline!</h1>
       <p id="offline-msg"></p>
-    </div>
+    </main>
 
     <script>
       const messages = [
-        `Unfortunately, the internet didn’t show up to work today.<br><br>
-       No Google Forms, no transactions  —  just you, me, and existential silence.<br><br><br>
-       Maybe this is your sign to take a break?`,
-
-        `Looks like the internet has taken a break. <br><br> Try again later… or bribe your router with cookies.`,
+        "Unfortunately, the internet didn’t show up to work today.<br>No Google Forms, no transactions — just you, me, and existential silence.<br><br>Maybe this is your sign to take a break?",
+        "Looks like the internet has taken a break. Try again later… or bribe your router with cookies.",
       ];
-
-      const randomIndex = Math.floor(Math.random() * messages.length);
-      document.getElementById("offline-msg").innerHTML = messages[randomIndex];
+      document.getElementById("offline-msg").innerHTML =
+        messages[Math.floor(Math.random() * messages.length)];
     </script>
   </body>
 </html>
