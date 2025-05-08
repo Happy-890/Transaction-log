@@ -14,6 +14,31 @@ html, body {
   overflow: auto;
 }
 
+.button-container {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.form-button {
+  background-color: #d4af37;
+  color: #000;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.form-button:hover {
+  background-color: #b5962f;
+}
+
+h1, p {
+  text-align: center;
+}
+
 /* Ensure full scrollable content */
 body {
   position: relative;
