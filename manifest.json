@@ -1,6 +1,6 @@
 {
   "name": "TransactionLog",
-  "short_name": "TxLog",
+  "short_name": "Transactions",
   "start_url": "index.html",
   "display": "standalone",
   "background_color": "#ffffff",
