@@ -3,36 +3,59 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Transaction Log</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>TransactionLog</title>
   <link rel="manifest" href="manifest.json" />
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js" defer></script>
-  <script src="sw-register.js" defer></script>
-  <script src="background-toggle.js" defer></script>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div id="bg-container">
+
+  <!-- Background Animation (Online: tsParticles | Offline: SVG) -->
+  <div class="background-container">
     <div id="tsparticles"></div>
-    <div id="offline-svg" hidden>
-      <!-- Inline animated SVG fallback -->
-      <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <radialGradient id="grad" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#FFD700" />
-            <stop offset="100%" stop-color="#000000" />
-          </radialGradient>
-        </defs>
-        <circle cx="50" cy="50" r="45" fill="url(#grad)">
-          <animateTransform attributeName="transform" type="rotate" values="0 50 50;360 50 50" dur="30s" repeatCount="indefinite"/>
-        </circle>
-      </svg>
-    </div>
+    <svg id="offline-svg" class="hidden" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <radialGradient id="goldSwirl" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#d4af37" />
+          <stop offset="100%" stop-color="black" />
+        </radialGradient>
+      </defs>
+      <rect width="800" height="600" fill="url(#goldSwirl)">
+        <animate attributeName="x" from="0" to="100" dur="10s" repeatCount="indefinite"/>
+      </rect>
+    </svg>
   </div>
 
-  <main>
-    <h1>Transaction Log</h1>
-    <a href="business.html" class="nav-link">Business Transactions</a>
-    <a href="personal.html" class="nav-link">Personal Transactions</a>
+  <!-- Main Content -->
+  <main class="main-content">
+    <h1>TransactionLog</h1>
+    <p>Select a form to continue:</p>
+    <div class="button-container">
+      <a href="business.html" class="form-button">Business Transactions</a>
+      <a href="personal.html" class="form-button">Personal Transactions</a>
+    </div>
   </main>
+
+  <script src="sw-register.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.3.0/tsparticles.bundle.min.js"></script>
+  <script>
+    // Load tsParticles if online
+    if (navigator.onLine) {
+      tsParticles.load("tsparticles", {
+        fullScreen: { enable: false },
+        background: { color: "#000000" },
+        particles: {
+          color: { value: "#d4af37" },
+          move: { enable: true, speed: 0.5, direction: "none", outModes: { default: "out" } },
+          size: { value: 2, random: true },
+          opacity: { value: 0.6 },
+          number: { value: 60, density: { enable: true, area: 800 } },
+        },
+      });
+    } else {
+      // Show fallback SVG if offline
+      document.getElementById("offline-svg").classList.remove("hidden");
+    }
+  </script>
+
 </body>
 </html>
