@@ -2,64 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Transaction Logger</title>
-    <link rel="manifest" href="/manifest.json" />
-    <meta name="theme-color" content="#4CAF50" />
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background: #f0f0f0;
-        margin: 0;
-        padding: 1rem;
-        color: #333;
-      }
-      header {
-        text-align: center;
-        margin-bottom: 1.5rem;
-      }
-      h1 {
-        margin: 0.5rem 0;
-        font-size: 1.75rem;
-      }
-      iframe {
-        width: 100%;
-        max-width: 640px;
-        height: 1186px;
-        border: none;
-        margin: 0 auto;
-        display: block;
-        background: #fff;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      }
-      @media (max-width: 700px) {
-        iframe {
-          height: 1300px;
-        }
-      }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TransactionLog</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="manifest" href="manifest.json" />
+    <script src="sw-register.js" defer></script>
   </head>
   <body>
-    <header>
-      <h1>Log a Transaction</h1>
-      <p>Fill out the form below to log a business or personal transaction.</p>
-    </header>
-
-    <iframe
-      src="https://docs.google.com/forms/d/e/1FAIpQLScQSQjHLEmAskhqtYcRGfwr97t-g6Nb4ZYt4ymv4-ru6p1-lA/viewform?embedded=true"
-      frameborder="0"
-      marginheight="0"
-      marginwidth="0"
-      >Loading…</iframe
-    >
-
-    <script>
-      if ("serviceWorker" in navigator) {
-        navigator.serviceWorker
-          .register("/sw.js")
-          .then((reg) => console.log("✅ Service Worker registered", reg))
-          .catch((err) => console.error("❌ Service Worker failed", err));
-      }
-    </script>
+    <div class="container">
+      <h1>TransactionLog</h1>
+      <p>Choose a form:</p>
+      <nav>
+        <a href="business.html">Business Transactions</a>
+        <a href="personal.html">Personal Transactions</a>
+      </nav>
+    </div>
   </body>
 </html>
